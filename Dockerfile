@@ -1,12 +1,8 @@
 FROM ubuntu:16.04
 
-COPY requirements.txt /requirements.txt
-
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive \
-    apt-get install -y --no-install-recommends apt-utils
-RUN DEBIAN_FRONTEND=noninteractive \
-    apt-get install -y --no-install-recommends \
+    apt-get install -y --no-install-recommends apt-utils \
             curl \
             xz-utils \
             build-essential \
@@ -19,16 +15,17 @@ RUN DEBIAN_FRONTEND=noninteractive \
         && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /tmp
-RUN curl -O https://www.python.org/ftp/python/3.5.3/Python-3.5.3.tar.xz
-RUN tar -xf Python-3.5.3.tar.xz
-WORKDIR /tmp/Python-3.5.3
-RUN ./configure
-RUN make \
-    && make install
+RUN curl -O https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tar.xz
+RUN tar -xf Python-3.6.4.tar.xz
+WORKDIR /tmp/Python-3.6.4
+
+RUN ./configure && \
+    make && make install
 
 WORKDIR /
-RUN rm -rf /tmp/Python-3.5.3.tar.xz /tmp/Python-3.5.3
+RUN rm -rf /tmp/Python-3.6.4.tar.xz /tmp/Python-3.6.4
 
+COPY requirements.txt /requirements.txt
 RUN pip3 install -r /requirements.txt
 
 RUN pip3 install --no-cache-dir \
