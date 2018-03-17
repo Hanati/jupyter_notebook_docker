@@ -2,13 +2,11 @@
 
 ----
 
-### Docker build
+### how to use
 
-    docker build -t juypter-notebook .
-    #### build using proxy
-    docker build build-arg HTTP_PROXY=http://*.*.*.*:*
+    make all
 
 ### Docker run
-    docker run --rm -p 8888:8888 -v your_directory:/home jupyter-notebook
+    docker run --rm -p 8888:8888 -v your_directory:/home jupyter-notebook-python3.6.4
 
 
