@@ -1,10 +1,10 @@
-docker_name=jupyter-notebook-python3.6.4
-all: stop rm build
+docker_name=jupyter-notebook-py3
+all: stop rm build run
 
 stop:
-	docker stop ${docker_name} || true
+	-docker stop ${docker_name} || true
 rm:
-	docker rm ${docker_name} || true
+	-docker rm ${docker_name} || true
 build:
 	docker build -t ${docker_name} .
 run:
