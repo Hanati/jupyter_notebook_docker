@@ -37,4 +37,4 @@ EXPOSE 8888
 
 WORKDIR "/home"
 
-CMD jupyter-notebook --ip="*" --no-browser --allow-root
+CMD jupyter-notebook --ip="0.0.0.0" --no-browser --allow-root
