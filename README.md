@@ -1,7 +1,7 @@
 # Docker File for jupyter notebook for single user on cloud
 ----
 ### The basic structure
-   Ubuntu16.04 => miniconda3 => jupyter
+   python:3.8 => jupyter
 
 ### How to use
 
