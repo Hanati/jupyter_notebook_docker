@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive \
@@ -34,7 +34,9 @@ RUN pip3 install -r /requirements.txt
 RUN pip3 install --no-cache-dir \
         ipykernel \
         jupyter \
-	jupyterlab 
+	jupyterlab \
+	mlflow \
+	cloudpickle
 
 # IPython
 EXPOSE 8888
